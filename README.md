@@ -1,22 +1,37 @@
-# Flutter
+# TimeGuard - Social Media Addiction Blocker
 
-A modern Flutter-based mobile application utilizing the latest mobile development technologies and tools for building responsive cross-platform applications.
+A powerful Flutter mobile application designed to help users control their social media addiction through smart blocking and motivational features.
 
-## 📋 Prerequisites
+## 🎯 Features
 
-- Flutter SDK (^3.29.2)
+- ⏱️ **Smart Timer** - Set custom time durations for blocking apps
+- 🚫 **App Blocking** - Automatically block apps and websites
+- 📊 **Dashboard** - Real-time screen time statistics
+- 💪 **Motivation** - Achievements and streak tracking
+- 💸 **Dynamic Pricing** - Increasing unlock costs to deter repeated usage
+- 📈 **Analytics** - Weekly usage reports
+
+## 📚 Prerequisites
+
+- Flutter SDK (3.6.0 or higher)
 - Dart SDK
-- Android Studio / VS Code with Flutter extensions
-- Android SDK / Xcode (for iOS development)
+- Android SDK / Xcode (for iOS)
+- Android Studio / VS Code with Flutter extension
 
-## 🛠️ Installation
+## 🚀 Installation
 
-1. Install dependencies:
+1. Clone the repository
+```bash
+git clone https://github.com/fabri8app/time-guard.git
+cd time-guard
+```
+
+2. Install dependencies
 ```bash
 flutter pub get
 ```
 
-2. Run the application:
+3. Run the app
 ```bash
 flutter run
 ```
@@ -24,89 +39,50 @@ flutter run
 ## 📁 Project Structure
 
 ```
-flutter_app/
-├── android/            # Android-specific configuration
-├── ios/                # iOS-specific configuration
-├── lib/
-│   ├── core/           # Core utilities and services
-│   │   └── utils/      # Utility classes
-│   ├── presentation/   # UI screens and widgets
-│   │   └── splash_screen/ # Splash screen implementation
-│   ├── routes/         # Application routing
-│   ├── theme/          # Theme configuration
-│   ├── widgets/        # Reusable UI components
-│   └── main.dart       # Application entry point
-├── assets/             # Static assets (images, fonts, etc.)
-├── pubspec.yaml        # Project dependencies and configuration
-└── README.md           # Project documentation
+lib/
+├── main.dart                 # App entry point
+├── core/                     # Core utilities
+├── presentation/             # UI Screens
+├── routes/                   # Navigation
+├── theme/                    # App theme
+└── widgets/                  # Reusable widgets
+
+android/                       # Android native code
+ios/                          # iOS native code
 ```
 
-## 🧩 Adding Routes
+## 🔧 Building for Android
 
-To add new routes to the application, update the `lib/routes/app_routes.dart` file:
+### APK Build
+```bash
+flutter build apk
+```
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:package_name/presentation/home_screen/home_screen.dart';
+### AAB (App Bundle) Build
+```bash
+flutter build appbundle
+```
 
-class AppRoutes {
-  static const String initial = '/';
-  static const String home = '/home';
+## 📝 Environment Setup
 
-  static Map<String, WidgetBuilder> routes = {
-    initial: (context) => const SplashScreen(),
-    home: (context) => const HomeScreen(),
-    // Add more routes as needed
-  }
+Create an `env.json` file in the root directory:
+
+```json
+{
+  "supabase_url": "YOUR_SUPABASE_URL",
+  "supabase_key": "YOUR_SUPABASE_ANON_KEY",
+  "stripe_key": "YOUR_STRIPE_PUBLIC_KEY"
 }
 ```
 
-## 🎨 Theming
+## 🤝 Contributing
 
-This project includes a comprehensive theming system with both light and dark themes:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-```dart
-// Access the current theme
-ThemeData theme = Theme.of(context);
+## 📄 License
 
-// Use theme colors
-Color primaryColor = theme.colorScheme.primary;
-```
+This project is licensed under the MIT License.
 
-The theme configuration includes:
-- Color schemes for light and dark modes
-- Typography styles
-- Button themes
-- Input decoration themes
-- Card and dialog themes
+## 🎓 About
 
-## 📱 Responsive Design
-
-The app is built with responsive design using the Sizer package:
-
-```dart
-// Example of responsive sizing
-Container(
-  width: 50.w, // 50% of screen width
-  height: 20.h, // 20% of screen height
-  child: Text('Responsive Container'),
-)
-```
-## 📦 Deployment
-
-Build the application for production:
-
-```bash
-# For Android
-flutter build apk --release
-
-# For iOS
-flutter build ios --release
-```
-
-## 🙏 Acknowledgments
-- Built with [Rocket.new](https://rocket.new)
-- Powered by [Flutter](https://flutter.dev) & [Dart](https://dart.dev)
-- Styled with Material Design
-
-Built with ❤️ on Rocket.new
+TimeGuard is built with Flutter and Dart for cross-platform mobile development.
